@@ -1,0 +1,15 @@
+# git, docker, log files
+.git
+.gitignore
+Dockerfile
+.dockerignore
+*.log
+
+# .gitignore
+.idea
+target
+.mvn
+.DS_Store
+README.md
+x
+.github

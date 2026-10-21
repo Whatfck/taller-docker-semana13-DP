@@ -17,12 +17,12 @@ Debes encapsular el artefacto en una imagen de producción ligera, segura y con 
 
 Se debe crear un archivo Dockerfile y un .dockerignore en la raíz de eco-air-backend cumpliendo estas restricciones:
 
-- **Etapa 1 (builder):** Utilizar maven:3.9.6-eclipse-temurin-17-alpine.
+- **Etapa 1 (builder):** Utilizar maven:3.9.6-eclipse-temurin-21-alpine.
     - Aislar la descarga del pom.xml y ejecutar mvn dependency:go-offline -B antes de transferir src/ para preservar el caché entre builds de código.
     - Declarar un argumento de compilación: ARG STUDENT_ID.
     - Empaquetar el ejecutable .jar omitiendo pruebas.
 
-- **Etapa 2 (runtime):** Utilizar eclipse-temurin:17-jre-alpine.
+- **Etapa 2 (runtime):** Utilizar eclipse-temurin:21-jre-alpine.
     - Crear un usuario del sistema sin privilegios: sensor_user con UID 10001 asignado al grupo sensorgroup.
     - Copiar únicamente el archivo .jar resultante y cambiar la titularidad del directorio /app a dicho usuario.
     - Configurar variables de entorno ergonómicas para la JVM
